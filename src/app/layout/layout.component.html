@@ -1,0 +1,25 @@
+<!-- layout.component.html -->
+<div id="app">
+  <nav class="navbar navbar-expand navbar-dark bg-dark">
+    <ul class="navbar-nav mr-auto" routerLinkActive="active">
+      <li class="nav-item">
+        <a href="/home" class="nav-link" routerLink="home">Inicio</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
+      <li class="nav-item">
+        <a href="/login" class="nav-link" routerLink="login">Ingresar</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
+      <li class="nav-item">
+        <a href class="nav-link" (click)="logout()">Salir</a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Aquí se renderizan los componentes hijos -->
+  <div class="container mt-3">
+    <router-outlet></router-outlet>
+  </div>
+</div>

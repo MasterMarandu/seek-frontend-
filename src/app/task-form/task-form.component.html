@@ -1,0 +1,58 @@
+<form (ngSubmit)="onSubmit()" #taskForm="ngForm" class="needs-validation" novalidate>
+  <div class="mb-3">
+    <label for="title" class="form-label">Título</label>
+    <input
+      type="text"
+      id="title"
+      class="form-control"
+      [(ngModel)]="task.title"
+      name="title"
+      placeholder="Título"
+      required
+      minlength="3"
+      maxlength="100" />
+    <div
+      *ngIf="taskForm.submitted && taskForm.controls['title'].invalid"
+      class="invalid-feedback">
+      El título es requerido y debe tener entre 3 y 100 caracteres.
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="description" class="form-label">Descripción</label>
+    <textarea
+      id="description"
+      class="form-control"
+      [(ngModel)]="task.description"
+      name="description"
+      placeholder="Descripción"
+      required
+      maxlength="500"></textarea>
+    <div
+      *ngIf="taskForm.submitted && taskForm.controls['description'].invalid"
+      class="invalid-feedback">
+      La descripción es requerida y no puede exceder los 500 caracteres.
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="status" class="form-label">Estado</label>
+    <select
+      id="status"
+      class="form-select"
+      [(ngModel)]="task.status"
+      name="status"
+      required>
+      <option value="por_hacer">Por Hacer</option>
+      <option value="en_progreso">En Progreso</option>
+      <option value="completada">Completada</option>
+    </select>
+  </div>
+
+  <button type="submit" class="btn btn-primary" [disabled]="taskForm.invalid">
+    {{ task.id ? 'Actualizar' : 'Guardar' }}
+  </button>
+  <button type="button" class="btn btn-secondary ms-2" (click)="goBack()">
+    Cancelar
+  </button>
+</form>

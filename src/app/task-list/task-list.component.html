@@ -1,0 +1,39 @@
+<div class="container mt-4">
+  <h2 class="mb-3">Lista de Tareas</h2>
+
+  <!-- Tabla de tareas -->
+  <table class="table table-bordered table-striped">
+    <thead class="table-dark">
+      <tr>
+        <th scope="col">Título</th>
+        <th scope="col">Descripción</th>
+        <th scope="col">Estado</th>
+        <th scope="col">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let task of tasks">
+        <td>{{ task.title }}</td>
+        <td>{{ task.description }}</td>
+        <td>{{ task.status }}</td>
+        <td>
+          <!-- Botones de edición y eliminación -->
+          <button
+            type="button"
+            class="btn btn-sm btn-primary me-2"
+            (click)="updateTask(task)"
+            title="Editar tarea">
+            <i class="bi bi-pencil"></i> Editar
+          </button>
+          <button
+            type="button"
+            class="btn btn-sm btn-danger"
+            (click)="deleteTask(task)"
+            title="Eliminar tarea">
+            <i class="bi bi-trash"></i> Eliminar
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

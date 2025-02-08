@@ -1,0 +1,12 @@
+<!-- home.component.html -->
+<div class="container">
+  <header class="jumbotron">
+    <p>{{ content }}</p>
+  </header>
+
+  <button class="btn btn-primary" (click)="navigateToAddTask()">Agregar Tarea</button>
+
+
+  <!-- Lista de tareas -->
+  <app-task-list></app-task-list>
+</div>
