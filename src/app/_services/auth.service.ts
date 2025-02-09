@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, tap } from 'rxjs';
 
-const AUTH_API = 'http://localhost:8080/api/auth/';
+const AUTH_API = 'http://159.223.202.94:8080/api/auth/';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -26,7 +26,7 @@ export class AuthService {
   }
 
   logout(): Observable<any> {
-    const token = `Bearer asdasdasdasdasdasdasdasdasd` //`Bearer ${localStorage.getItem('auth-token')}`;
+    const token = `Bearer ${localStorage.getItem('auth-token')}`;
     return this.http.post(AUTH_API + 'signout', {}, {
       headers: new HttpHeaders({ Authorization: token })
     }).pipe(
