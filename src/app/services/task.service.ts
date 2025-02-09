@@ -8,7 +8,7 @@ import { StorageService } from '../_services/storage.service';
   providedIn: 'root',
 })
 export class TaskService {
-  private apiUrl = 'http://localhost:8080/api/tasks'; // URL de la API
+  private apiUrl = 'http://159.223.202.94:8080/api/tasks'; // URL de la API
 
   constructor(private http: HttpClient, private storageService: StorageService) { }
 
